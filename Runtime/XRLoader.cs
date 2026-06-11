@@ -267,6 +267,22 @@ namespace Google.XR.Cardboard
 
         // *** end of edit ***
 
+        // TOGGLE EDIT: DPI scaling toggle
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern void CardboardUnity_setDpiScalingEnabled(bool enabled);
+
+        /// <summary>
+        /// Enables or disables DPI-based viewport scaling at runtime.
+        /// Repushes screen params and marks device params changed so the
+        /// distortion mesh rebuilds on the next frame.
+        /// </summary>
+        public static void SetDpiScalingEnabled(bool enabled)
+        {
+            CardboardUnity_setDpiScalingEnabled(enabled);
+            RecalculateRectangles(Screen.safeArea);
+        }
+        // END TOGGLE EDIT
+
         [DllImport(ApiConstants.CardboardApi)]
         private static extern void CardboardUnity_setWidgetCount(int count);
 

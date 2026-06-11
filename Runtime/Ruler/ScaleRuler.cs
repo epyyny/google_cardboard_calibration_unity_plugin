@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class ScaleRuler : MonoBehaviour
 {
     public Image rulerImage;       // image to be scaled
-    public float widthStep = 10f; // How much to change width per press
+    public float widthStep = 2f; // How much to change width per press
     public DPICalculator dpiCalculator;
 
     void Start()
